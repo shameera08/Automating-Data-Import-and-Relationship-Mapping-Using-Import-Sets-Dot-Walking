@@ -1,0 +1,6 @@
+Name,Email,Phone,Department,Manager
+John Doe,john@it.com,1234567890,IT,
+Jane Smith,jane@it.com,0987654321,it,John Doe
+Bob Johnson,bob@hr.com,1112223333,HR,
+Alice Brown,alice@finance.com,4445556666,Finance,Bob Johnson
+Charlie Wilson,charlie@marketing.com,7778889999,MARKETING,John Doe

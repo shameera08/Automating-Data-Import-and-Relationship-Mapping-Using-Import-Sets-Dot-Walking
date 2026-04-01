@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Import and Relationship Mapping System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="loginSection" class="section active">
+        <header style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 1.2rem; font-weight: bold;">
+            Employee Data Import & Relationship Mapping System
+        </header>
+        <div class="container" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding-top: 0;">
+            <form id="loginForm" style="text-align: center;">
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Enter Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="section">
+        <div class="container">
+            <header>
+                <h1>Employee Management System</h1>
+                <button id="logoutBtn">Logout</button>
+            </header>
+
+            <!-- Stats -->
+            <div id="stats" class="stats-grid"></div>
+
+            <!-- Manual Entry -->
+            <section class="form-section">
+                <h2 id="formTitle">➕ Add Employee</h2>
+                <form id="employeeForm">
+                    <input type="hidden" id="editId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select id="department">
+                                <option value="">Select Department</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Marketing">Marketing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Manager</label>
+                            <input type="text" id="manager" placeholder="Enter manager name">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" id="addSampleBtn">Load Sample</button>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn">Add Employee</button>
+                        <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- CSV Upload -->
+            <section class="upload-section">
+                <h2>📤 Bulk Import CSV</h2>
+                <div class="file-upload">
+                    <input type="file" id="csvFile" accept=".csv" required>
+                    <button id="uploadBtn" disabled>Import CSV</button>
+                </div>
+                <div class="upload-info">
+                    Expected columns: Name,Email,Phone,Department,Manager
+                </div>
+            </section>
+
+            <!-- Employees Table -->
+            <section class="table-section">
+                <h2>👥 Employees <span id="totalCount" class="badge">0</span></h2>
+                <div class="table-actions">
+                    <input type="text" id="searchInput" placeholder="🔍 Search employees...">
+                    <select id="deptFilter">
+                        <option value="">All Departments</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                    </select>
+                </div>
+                <div id="tableContainer">
+                    <table id="employeesTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Department</th>
+                                <th>Manager</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeesTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
